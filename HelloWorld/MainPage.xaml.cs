@@ -22,6 +22,12 @@ namespace HelloWorld
             //BuildLocalizedApplicationBar();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            helloTextBlock.Visibility = Visibility.Collapsed;
+            goodbyeButton.IsEnabled = false;
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
