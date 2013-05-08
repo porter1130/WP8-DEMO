@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationManagement", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationParameters", "Samples02\NavigationParameters\NavigationParameters\NavigationParameters.csproj", "{F184B9BC-CF84-4ED9-B7A1-80A44DAA8F6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP8Controller", "WP8Controller\WP8Controller.csproj", "{98EB3982-FBA8-464E-9A1A-BEF70435F109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,24 @@ Global
 		{F184B9BC-CF84-4ED9-B7A1-80A44DAA8F6F}.Release|x86.ActiveCfg = Release|x86
 		{F184B9BC-CF84-4ED9-B7A1-80A44DAA8F6F}.Release|x86.Build.0 = Release|x86
 		{F184B9BC-CF84-4ED9-B7A1-80A44DAA8F6F}.Release|x86.Deploy.0 = Release|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|ARM.ActiveCfg = Debug|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|ARM.Build.0 = Debug|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|ARM.Deploy.0 = Debug|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|x86.ActiveCfg = Debug|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|x86.Build.0 = Debug|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Debug|x86.Deploy.0 = Debug|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|ARM.ActiveCfg = Release|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|ARM.Build.0 = Release|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|ARM.Deploy.0 = Release|ARM
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|x86.ActiveCfg = Release|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|x86.Build.0 = Release|x86
+		{98EB3982-FBA8-464E-9A1A-BEF70435F109}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
