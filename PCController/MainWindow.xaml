@@ -1,0 +1,181 @@
+﻿<Window x:Class="PCController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:PCController.ViewModels"
+        Title="WP8 Remote Controller" Height="500" Width="640"
+        Background="#FF1BA1E2"
+        Foreground="White"
+        ResizeMode="CanMinimize"
+        WindowStyle="None"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed">
+    <Window.Resources>
+        <ControlTemplate x:Key="ButtonControlTemplate"
+                         TargetType="{x:Type Button}">
+            <Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                               Storyboard.TargetName="HighlightBorder">
+                                    <EasingDoubleKeyFrame KeyTime="0"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                               Storyboard.TargetName="HighlightBorder">
+                                    <EasingDoubleKeyFrame KeyTime="0"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                                                              Storyboard.TargetName="HighlightBorder">
+                                    <EasingColorKeyFrame KeyTime="0"
+                                                         Value="#FFFFB4B4" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled" />
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Border x:Name="HighlightBorder"
+                        Margin="0"
+                        d:LayoutOverrides="Width, Height"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        BorderBrush="{TemplateBinding Foreground}"
+                        BorderThickness="1"
+                        Padding="0"
+                        Opacity="0"
+                        Background="#00FFB4B4" />
+                <TextBlock x:Name="textBlock"
+                           TextWrapping="Wrap"
+                           Text="{TemplateBinding Content}"
+                           Foreground="{TemplateBinding Foreground}"
+                           HorizontalAlignment="Right"
+                           Margin="{TemplateBinding Padding}"
+                           d:LayoutOverrides="Height"
+                           Background="{x:Null}" />
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="TextBlockCaptionStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping"
+                    Value="NoWrap" />
+            <Setter Property="TextTrimming"
+                    Value="None" />
+            <Setter Property="FontFamily"
+                    Value="Segoe UI Light" />
+            <Setter Property="FontSize"
+                    Value="48" />
+            <Setter Property="Margin"
+                    Value="0,0,0,-8" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Right" />
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock HorizontalAlignment="Left"
+                       TextWrapping="Wrap"
+                       Text="Under Control PC Controller"
+                       VerticalAlignment="Bottom"
+                       Margin="20,20,0,3"
+                       FontFamily="Segoe WP Light"
+                       FontSize="26"
+                       IsHitTestVisible="False"></TextBlock>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right"
+                    Margin="0,3,3,0"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top">
+            <Button Content="_"
+                    Template="{DynamicResource ButtonControlTemplate}"
+                    Click="MinimizeButton_Click"
+                    Margin="0,2,2,0"
+                    Foreground="White"
+                    Padding="3,-5,3,3"
+                    ToolTip="Minimize to System Tray" />
+            <Button Content="x"
+                    Template="{DynamicResource ButtonControlTemplate}"
+                    Click="CloseButton_Click"
+                    Margin="0,2,2,0"
+                    Foreground="White"
+                    Padding="3,-3,3,1"
+                    VerticalAlignment="Top"
+                    ToolTip="Shutdown and Close" />
+        </StackPanel>
+        <Grid Margin="0,15,0,20"
+              Grid.Row="1"
+              Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock TextWrapping="Wrap"
+                   Text="Info"
+                   FontFamily="Segoe UI Light"
+                   FontSize="48"
+                   Style="{DynamicResource TextBlockCaptionStyle}"></TextBlock>
+            <StackPanel Margin="20,0"
+                        VerticalAlignment="Bottom"
+                        d:LayoutOverrides="Width"
+                        Grid.Column="1">
+                <StackPanel Margin="0,0,0,2"
+                        Orientation="Horizontal">
+                    <TextBlock TextWrapping="Wrap"
+                           Text="Status:"/>
+                    <TextBlock TextWrapping="Wrap"
+                           Text="{Binding Status}"
+                           Margin="5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0">
+                    <TextBlock Text="IP address of this computer: "
+                               Margin="0"/>
+                    <TextBlock TextWrapping="Wrap"
+                               Text="{Binding IPAddress}"
+                               Margin="5,0"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap"
+                       Text="Log"
+                       Style="{DynamicResource TextBlockCaptionStyle}"
+                       Margin="0"
+                       d:LayoutOverrides="HorizontalAlignment"
+                       Grid.Row="1">
+                
+            </TextBlock>
+            <ListBox ItemsSource="{Binding Errors}"
+                         Background="White"
+                         BorderBrush="#FFE2E2E2"
+                         Margin="20,27,20,0"
+                         Grid.Row="1"
+                         Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>

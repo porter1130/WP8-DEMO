@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45F8CC02-08FB-4B63-8CA1-9F66484B9950}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnderControl.Shared</RootNamespace>
+    <AssemblyName>UnderControl.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile2</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\UnderControl.Shared.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\UnderControl.Shared.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Channels\ControlCommandReceivedEventArgs.cs" />
+    <Compile Include="Channels\IControlChannel.cs" />
+    <Compile Include="Channels\IDataChannel.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="ControlCommands\CommandAction.cs" />
+    <Compile Include="ControlCommands\ConfigurationControlCommand.cs" />
+    <Compile Include="ControlCommands\ControlCommandFactory.cs" />
+    <Compile Include="ControlCommands\ControlCommand.cs" />
+    <Compile Include="ControlCommands\IControlCommand.cs" />
+    <Compile Include="ControllerConfiguration.cs" />
+    <Compile Include="ControllerVersionMismatchException.cs" />
+    <Compile Include="Data\AttitudeReading.cs" />
+    <Compile Include="Data\ControllerInfoData.cs" />
+    <Compile Include="Data\CompassData.cs" />
+    <Compile Include="Data\Matrix.cs" />
+    <Compile Include="Data\Quaternion.cs" />
+    <Compile Include="Data\MotionData.cs" />
+    <Compile Include="Data\GyroscopeData.cs" />
+    <Compile Include="Data\Vector3.cs" />
+    <Compile Include="Data\PinchData.cs" />
+    <Compile Include="Data\PinchCompleteData.cs" />
+    <Compile Include="Data\VerticalDragData.cs" />
+    <Compile Include="Data\HorizontalDragData.cs" />
+    <Compile Include="Data\CustomDragCompleteData.cs" />
+    <Compile Include="Data\CustomDragData.cs" />
+    <Compile Include="Data\DragCompleteData.cs" />
+    <Compile Include="Data\DragDataBase.cs" />
+    <Compile Include="Data\FlickData.cs" />
+    <Compile Include="Data\DataTypesChangedEventArgs.cs" />
+    <Compile Include="Data\FreeDragData.cs" />
+    <Compile Include="Data\HoldData.cs" />
+    <Compile Include="Data\DoubleTapData.cs" />
+    <Compile Include="Data\DataMessageFactory.cs" />
+    <Compile Include="Data\IDataMessage.cs" />
+    <Compile Include="Data\TapData.cs" />
+    <Compile Include="Data\TextData.cs" />
+    <Compile Include="Data\TouchData.cs" />
+    <Compile Include="Data\TouchPoint.cs" />
+    <Compile Include="Data\TouchPointState.cs" />
+    <Compile Include="Data\Vector2.cs" />
+    <Compile Include="ErrorEventArgs.cs" />
+    <Compile Include="ICommunicationFactory.cs" />
+    <Compile Include="PhoneControllerException.cs" />
+    <Compile Include="PhoneControllerState.cs" />
+    <Compile Include="DataType.cs" />
+    <Compile Include="Data\AccelerometerData.cs" />
+    <Compile Include="Data\DataMessage.cs" />
+    <Compile Include="Data\DataMessageEventArgs.cs" />
+    <Compile Include="Data\IDataSource.cs" />
+    <Compile Include="PhoneControllerStateEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sockets\ClientAcceptedEventArgs.cs" />
+    <Compile Include="Sockets\DataReceivedEventArgs.cs" />
+    <Compile Include="Channels\IChannel.cs" />
+    <Compile Include="Sockets\IMulticastClient.cs" />
+    <Compile Include="Sockets\ITcpSocketWrapper.cs" />
+    <Compile Include="Sockets\IUdpSocketWrapper.cs" />
+    <Compile Include="Sockets\ServerDiscoveredEventArgs.cs" />
+    <Compile Include="NetworkErrorEventArgs.cs" />
+    <Compile Include="Data\Thickness.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
