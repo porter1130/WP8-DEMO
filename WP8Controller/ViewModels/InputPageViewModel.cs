@@ -244,10 +244,8 @@ namespace WP8Controller.ViewModels
 
         private void InputTextData_KeyDown(EventInformation<KeyEventArgs> ei)
         {
-            EventInformation<KeyEventArgs> eventInfo = ei as EventInformation<KeyEventArgs>;
-
-            var input = eventInfo.Sender as TextBox;
-            if (eventInfo.EventArgs.Key == Key.Enter)
+            var input = ei.Sender as TextBox;
+            if (ei.EventArgs.Key == Key.Enter)
             {
                 _textInputHelper.RaiseTextInputFinishedEvent(input.Text);
             }

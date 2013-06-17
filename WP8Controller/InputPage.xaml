@@ -39,7 +39,7 @@
 			Grid.Row="0">
 			<TextBox x:Name="InputTextData">
 				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:EventTrigger EventName="KeyDown">
 						<TriggerActions:MapKeyEventToCommand Command="{Binding InputTextKeyDownCommand, Mode=OneWay}"/>
 					</i:EventTrigger>
 				</i:Interaction.Triggers>
